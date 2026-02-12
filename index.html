@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frozen Air | Electronic Music</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --red-accent: #ff3b30;
+      --green-accent: #34c759;
+      --bg-dark: #0a0a0a;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      overflow-x: hidden;
+      margin: 0;
+    }
+
+    /* Logo Styling */
+    .logo {
+      text-transform: uppercase;
+      letter-spacing: 2rem;
+      /* Large gaps */
+      margin-right: -2rem;
+      /* Offsetting the last letter's spacing */
+    }
+
+    .ai-red {
+      color: var(--red-accent);
+    }
+
+    .r-green {
+      color: var(--green-accent);
+    }
+
+    /* Scroll Animation Logic */
+    .scroll-container {
+      height: 350vh;
+      /* Scroll length */
+      position: relative;
+    }
+
+    .sticky-wrapper {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    @keyframes apple-fade {
+      0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+        filter: blur(10px);
+      }
+
+      15% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0px);
+      }
+
+      85% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0px);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-30px) scale(1.05);
+        filter: blur(10px);
+      }
+    }
+
+    .scroll-animate {
+      view-timeline-name: --section;
+      view-timeline-axis: block;
+      animation: apple-fade linear both;
+      animation-timeline: --section;
+      animation-range: entry 0% exit 100%;
+    }
+
+    /* Glassmorphism */
+    .glass {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+    }
+
+    .input-field {
+      background: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      transition: border-color 0.4s ease;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: var(--red-accent);
+    }
+
+    /* Background Noise Texture */
+    .noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://grainy-gradients.vercel.app/noise.svg');
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: 50;
+    }
+  </style>
+  <style>
+    /* Styling for the music list items to show which is active */
+    .track-row.active {
+      color: var(--red-accent);
+      border-color: var(--red-accent);
+    }
+
+    .track-row.active .play-label {
+      color: var(--green-accent);
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="noise"></div>
+
+  <section class="scroll-container">
+    <div class="sticky-wrapper">
+      <div class="scroll-animate text-center px-4">
+        <h1 class="logo text-4xl md:text-6xl font-normal mb-8">
+          FROZEN <span class="ai-red">AI</span><span class="r-green">R</span>
+        </h1>
+        <p class="text-xs uppercase tracking-[0.5rem] text-zinc-500">Electronic Audio Project</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="scroll-container">
+    <div class="sticky-wrapper">
+      <div class="scroll-animate max-w-2xl px-8 text-center">
+        <p class="text-xl md:text-2xl leading-relaxed text-zinc-300">
+          A synthesis of absolute zero. Frozen Air explores the tension between organic decay and crystalline digital
+          structures. Every sound is a captured moment of stillness, processed through the lens of modern electronic
+          substances.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 text-center text-[10px] tracking-[0.3rem] text-zinc-600 uppercase">
+    © 2026 Frozen Air — Built for the Void
+  </footer>
+
+</body>
+
+</html>
