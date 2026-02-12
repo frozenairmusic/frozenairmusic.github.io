@@ -93,24 +93,6 @@
       animation-range: entry 0% exit 100%;
     }
 
-    /* Glassmorphism */
-    .glass {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(20px);
-    }
-
-    .input-field {
-      background: transparent;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      transition: border-color 0.4s ease;
-    }
-
-    .input-field:focus {
-      outline: none;
-      border-color: var(--red-accent);
-    }
-
     /* Background Noise Texture */
     .noise {
       position: fixed;
@@ -122,17 +104,6 @@
       opacity: 0.05;
       pointer-events: none;
       z-index: 50;
-    }
-  </style>
-  <style>
-    /* Styling for the music list items to show which is active */
-    .track-row.active {
-      color: var(--red-accent);
-      border-color: var(--red-accent);
-    }
-
-    .track-row.active .play-label {
-      color: var(--green-accent);
     }
   </style>
 
@@ -158,7 +129,7 @@
         <p class="text-xl md:text-2xl leading-relaxed text-zinc-300">
           A synthesis of absolute zero. Frozen Air explores the tension between organic decay and crystalline digital
           structures. Every sound is a captured moment of stillness, processed through the lens of modern electronic
-          substances.
+          technology.
         </p>
       </div>
     </div>
