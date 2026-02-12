@@ -25,27 +25,22 @@
       margin: 0;
     }
 
-    /* Logo Styling */
     .logo {
       text-transform: uppercase;
       letter-spacing: 2rem;
-      /* Large gaps */
       margin-right: -2rem;
-      /* Offsetting the last letter's spacing */
     }
 
-    .ai-red {
+    .logo__primary-color {
       color: var(--red-accent);
     }
 
-    .r-green {
+    .logo__secondary-color {
       color: var(--green-accent);
     }
 
-    /* Scroll Animation Logic */
     .scroll-container {
       height: 350vh;
-      /* Scroll length */
       position: relative;
     }
 
@@ -116,7 +111,7 @@
     <div class="sticky-wrapper">
       <div class="scroll-animate text-center px-4">
         <h1 class="logo text-4xl md:text-6xl font-normal mb-8">
-          FROZEN <span class="ai-red">AI</span><span class="r-green">R</span>
+          F<span class="logo__secondary-color">r</span>ozen <span class="logo__primary-color">Ai</span><span class="logo__secondary-color">r</span>
         </h1>
         <p class="text-xs uppercase tracking-[0.5rem] text-zinc-500">Electronic Audio Project</p>
       </div>
