@@ -22,6 +22,7 @@
       --red-accent: #ff3b30;
       --green-accent: #34c759;
       --bg-dark: #0a0a0a;
+      --scroll-multiplier: 2;
     }
 
     body {
@@ -37,6 +38,11 @@
       text-transform: uppercase;
       letter-spacing: 2rem;
       margin-right: -2rem;
+      position: relative;
+      text-shadow: 
+        0 0 40px currentColor,
+        0 0 80px currentColor,
+        0 0 120px currentColor;
     }
 
     .logo__primary-color {
@@ -48,7 +54,7 @@
     }
 
     .scroll-container {
-      height: 350vh;
+      height: calc(var(--scroll-multiplier) * 100vh);
       position: relative;
     }
 
@@ -65,7 +71,7 @@
     @keyframes apple-fade {
       0% {
         opacity: 0;
-        transform: translateY(30px) scale(0.95);
+        transform: translateY(30px) scale(0.9);
         filter: blur(10px);
       }
 
@@ -83,7 +89,7 @@
 
       100% {
         opacity: 0;
-        transform: translateY(-30px) scale(1.05);
+        transform: translateY(-30px) scale(1.1);
         filter: blur(10px);
       }
     }
