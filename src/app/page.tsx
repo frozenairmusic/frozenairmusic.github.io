@@ -4,8 +4,8 @@ import CookieConsent from "@/components/CookieConsent";
 
 export default function Home() {
   const handleConsent = (accepted: boolean) => {
-    if (typeof window !== 'undefined' && (window as any).handleConsentUpdate) {
-      (window as any).handleConsentUpdate(accepted);
+    if (typeof window !== 'undefined' && window.handleConsentUpdate) {
+      window.handleConsentUpdate(accepted);
     }
   };
 

@@ -20,11 +20,13 @@ export default function GoogleAnalytics() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      (window as any).handleConsentUpdate = handleConsentUpdate;
+      window.handleConsentUpdate = handleConsentUpdate;
     }
   }, []);
 
-  if (!hasConsent) return null;
+  if (!hasConsent) {
+    return null;
+  }
 
   return (
     <>

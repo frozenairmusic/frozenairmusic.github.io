@@ -24,7 +24,9 @@ export default function CookieConsent({ onConsent }: CookieConsentProps) {
     onConsent(accepted);
   };
 
-  if (!isVisible) return null;
+  if (!isVisible) {
+    return null;
+  }
 
   return (
     <div className={`cookie-banner ${isVisible ? 'visible' : ''}`}>
