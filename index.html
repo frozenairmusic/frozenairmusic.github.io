@@ -2,14 +2,6 @@
 <html lang="en">
 
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0YTM7JQHWJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-0YTM7JQHWJ');
-  </script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frozen Air | Electronic Music</title>
@@ -114,12 +106,90 @@
       pointer-events: none;
       z-index: 50;
     }
+
+    /* Cookie Consent Banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 600px;
+      width: calc(100% - 2rem);
+      background: rgba(20, 20, 20, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      padding: 1.5rem;
+      border-radius: 8px;
+      z-index: 100;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .cookie-banner.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cookie-banner__text {
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: #d4d4d8;
+      margin-bottom: 1rem;
+    }
+
+    .cookie-banner__buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .cookie-banner__button {
+      padding: 0.5rem 1.25rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      color: #ffffff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+
+    .cookie-banner__button:hover {
+      border-color: var(--green-accent);
+      color: var(--green-accent);
+    }
+
+    .cookie-banner__button--accept {
+      background: var(--green-accent);
+      border-color: var(--green-accent);
+      color: #0a0a0a;
+    }
+
+    .cookie-banner__button--accept:hover {
+      background: #2db84d;
+      border-color: #2db84d;
+      color: #0a0a0a;
+    }
   </style>
 
 </head>
 
 <body>
   <div class="noise"></div>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookieBanner" class="cookie-banner">
+    <p class="cookie-banner__text">
+      We use analytics to understand how visitors interact with our site. Your data helps us improve the experience.
+    </p>
+    <div class="cookie-banner__buttons">
+      <button id="acceptCookies" class="cookie-banner__button cookie-banner__button--accept">Accept</button>
+      <button id="declineCookies" class="cookie-banner__button">Decline</button>
+    </div>
+  </div>
 
   <section class="scroll-container">
     <div class="sticky-wrapper">
@@ -147,6 +217,70 @@
   <footer class="py-12 text-center text-[10px] tracking-[0.3rem] text-zinc-600 uppercase">
     © 2026 Frozen Air — Built for the Void
   </footer>
+
+  <script>
+    // Cookie Consent & Google Analytics
+    (function() {
+      const CONSENT_KEY = 'frozenair_analytics_consent';
+      const GA_ID = 'G-0YTM7JQHWJ';
+      
+      function loadGoogleAnalytics() {
+        // Load GA script
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+        document.head.appendChild(script);
+        
+        // Initialize GA
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', GA_ID, {
+          'anonymize_ip': true,
+          'cookie_flags': 'SameSite=None;Secure'
+        });
+      }
+      
+      function handleConsent(accepted) {
+        localStorage.setItem(CONSENT_KEY, accepted ? 'true' : 'false');
+        hideBanner();
+        
+        if (accepted) {
+          loadGoogleAnalytics();
+        }
+      }
+      
+      function showBanner() {
+        const banner = document.getElementById('cookieBanner');
+        if (banner) {
+          setTimeout(() => banner.classList.add('visible'), 500);
+        }
+      }
+      
+      function hideBanner() {
+        const banner = document.getElementById('cookieBanner');
+        if (banner) {
+          banner.classList.remove('visible');
+        }
+      }
+      
+      // Check existing consent
+      const consent = localStorage.getItem(CONSENT_KEY);
+      
+      if (consent === 'true') {
+        loadGoogleAnalytics();
+      } else if (consent === null) {
+        // No consent recorded, show banner
+        showBanner();
+      }
+      // If consent === 'false', do nothing (declined)
+      
+      // Event listeners
+      document.getElementById('acceptCookies')?.addEventListener('click', () => handleConsent(true));
+      document.getElementById('declineCookies')?.addEventListener('click', () => handleConsent(false));
+    })();
+  </script>
 
 </body>
 
