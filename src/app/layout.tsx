@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
-import Navigation from "@/components/Navigation";
+import GoogleAnalytics from "@/components/GoogleAnalytics.component";
+import Navigation from "@/components/Navigation.component";
 
 const inter = Inter({
   weight: "400",

@@ -112,7 +112,6 @@ export default function PodcastPage() {
       
       <main className="min-h-screen px-6 py-24">
         <div className="max-w-7xl mx-auto">
-          {/* Page Header */}
           <div className="text-center mb-20">
             <h1 className="logo text-4xl md:text-6xl font-normal mb-8">
               P<span className="logo__secondary-color">o</span>dcast
@@ -122,7 +121,6 @@ export default function PodcastPage() {
             </p>
           </div>
 
-          {/* Podcast Grid */}
           <div className="space-y-32">
             {(podcasts as Podcast[]).length === 0 ? (
               <div className="text-center py-32">
@@ -139,7 +137,6 @@ export default function PodcastPage() {
               (podcasts as Podcast[]).map((podcast) => (
                 <div key={podcast.id} className="w-full">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                    {/* Cover Art */}
                     <div className="relative group">
                       <div className="aspect-square glass rounded-sm overflow-hidden">
                         <Image
@@ -160,7 +157,6 @@ export default function PodcastPage() {
                       </div>
                     </div>
 
-                    {/* Info & Tracklist */}
                     <div className="space-y-6 md:pt-8">
                       <div className="flex items-center justify-between mb-6">
                         <h3 className="text-xs uppercase tracking-[0.3rem] md:tracking-[1rem] text-zinc-500">
@@ -168,7 +164,6 @@ export default function PodcastPage() {
                         </h3>
                       </div>
 
-                      {/* Play Button */}
                       <div
                         onClick={() => handlePlay(podcast)}
                         className={`border-b pb-4 flex justify-between items-end cursor-pointer group transition ${
@@ -185,7 +180,6 @@ export default function PodcastPage() {
                         </span>
                       </div>
 
-                      {/* Tracklist Toggle */}
                       <div
                         onClick={() => toggleTracklist(podcast.id)}
                         className="border-b border-white/10 pb-4 flex justify-between items-end cursor-pointer group hover:border-red-500 transition"
@@ -198,7 +192,6 @@ export default function PodcastPage() {
                         </span>
                       </div>
 
-                      {/* Expanded Tracklist */}
                       {expandedPodcast === podcast.id && (
                         <div className="mt-8 space-y-3 pl-4 border-l border-zinc-800">
                           {podcast.tracklist.map((track, index) => (
@@ -225,7 +218,6 @@ export default function PodcastPage() {
         </div>
       </main>
 
-      {/* Master Audio Player */}
       <div
         id="master-player"
         className={`fixed bottom-0 left-0 w-full z-[100] glass border-t border-white/10 p-4 transition-transform duration-700 ${
@@ -233,7 +225,6 @@ export default function PodcastPage() {
         }`}
       >
         <div className="max-w-6xl mx-auto flex items-center gap-6">
-          {/* Play/Pause Button */}
           <button
             onClick={togglePlayPause}
             className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:bg-white hover:text-black transition-all"
@@ -249,7 +240,6 @@ export default function PodcastPage() {
             )}
           </button>
 
-          {/* Track Info & Progress */}
           <div className="flex-1">
             <div className="flex justify-between items-end mb-2">
               <span className="text-[10px] tracking-[0.3rem] uppercase text-white">
@@ -262,7 +252,6 @@ export default function PodcastPage() {
               </span>
             </div>
 
-            {/* Progress Bar */}
             <div
               onClick={handleProgressClick}
               className="relative w-full h-[2px] bg-white/10 cursor-pointer group"
@@ -275,7 +264,6 @@ export default function PodcastPage() {
             </div>
           </div>
 
-          {/* Volume Control */}
           <div className="hidden md:flex items-center gap-3">
             <div 
               onClick={handleVolumeClick}
@@ -291,7 +279,6 @@ export default function PodcastPage() {
         </div>
       </div>
 
-      {/* Audio Element */}
       <audio
         ref={audioRef}
         onTimeUpdate={handleTimeUpdate}

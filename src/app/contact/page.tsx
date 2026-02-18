@@ -7,7 +7,6 @@ export default function ContactPage() {
       
       <main className="min-h-screen px-4 md:px-6 py-24">
         <div className="max-w-7xl mx-auto">
-          {/* Page Header */}
           <div className="text-center mb-20">
             <h1 className="logo text-4xl md:text-6xl font-normal mb-8">
               C<span className="logo__secondary-color">o</span>ntact
@@ -17,7 +16,6 @@ export default function ContactPage() {
             </p>
           </div>
 
-          {/* Contact Info */}
           <div className="max-w-2xl mx-auto space-y-6">
             <div className="border-b border-white/10 pb-6 hover:border-zinc-500 transition-all duration-300 cursor-pointer group">
               <p className="text-[10px] uppercase tracking-[0.25rem] text-zinc-500 mb-3">
@@ -31,7 +29,7 @@ export default function ContactPage() {
               </a>
             </div>
 
-            <div className="border-b border-white/10 pb-6 hover:border-zinc-500 transition-all duration-300 cursor-pointer group">
+            {/* <div className="border-b border-white/10 pb-6 hover:border-zinc-500 transition-all duration-300 cursor-pointer group">
               <p className="text-[10px] uppercase tracking-[0.25rem] text-zinc-500 mb-3">
                 YouTube
               </p>
@@ -43,7 +41,7 @@ export default function ContactPage() {
               >
                 @frozenairmusic
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </main>

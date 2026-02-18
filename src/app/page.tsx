@@ -1,6 +1,6 @@
 'use client';
 
-import CookieConsent from "@/components/CookieConsent";
+import CookieConsent from "@/components/CookieConsent.component";
 
 export default function Home() {
   const handleConsent = (accepted: boolean) => {
