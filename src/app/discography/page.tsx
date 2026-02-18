@@ -114,7 +114,7 @@ export default function DiscographyPage() {
             <h1 className="logo text-4xl md:text-6xl font-normal mb-8">
               D<span className="logo__primary-color">i</span>sc<span className="logo__secondary-color">o</span>g<span className="logo__secondary-color">r</span>aphy
             </h1>
-            <p className="text-xs uppercase tracking-[0.4rem] text-zinc-500">
+            <p className="text-xs uppercase tracking-[0.2rem] md:tracking-[0.4rem] text-zinc-500">
               Complete Audio Archive
             </p>
           </div>
@@ -159,7 +159,7 @@ export default function DiscographyPage() {
 
                   {/* Track Listing */}
                   <div className="space-y-6 md:pt-8">
-                    <h3 className="text-xs uppercase tracking-[1rem] text-zinc-500 mb-4">
+                    <h3 className="text-xs uppercase tracking-[0.3rem] md:tracking-[1rem] text-zinc-500 mb-4">
                       Tracklist
                     </h3>
                     <div className="space-y-4">

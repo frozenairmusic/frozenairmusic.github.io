@@ -23,7 +23,7 @@ export default function Home() {
               <span className="logo__primary-color">Ai</span>
               <span className="logo__secondary-color">r</span>
             </h1>
-            <p className="text-xs uppercase tracking-[0.5rem] text-zinc-500">
+            <p className="text-xs uppercase tracking-[0.2rem] md:tracking-[0.5rem] text-zinc-500">
               Electronic Audio Project
             </p>
           </div>

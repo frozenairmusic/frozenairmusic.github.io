@@ -21,13 +21,20 @@ body {
 
 .logo {
   text-transform: uppercase;
-  letter-spacing: 2rem;
-  margin-right: -2rem;
+  letter-spacing: 0.5rem;
+  margin-right: -0.5rem;
   position: relative;
   text-shadow: 
     0 0 40px currentColor,
     0 0 80px currentColor,
     0 0 120px currentColor;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    letter-spacing: 2rem;
+    margin-right: -2rem;
+  }
 }
 
 .logo__primary-color {

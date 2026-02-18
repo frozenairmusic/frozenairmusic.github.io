@@ -117,7 +117,7 @@ export default function PodcastPage() {
             <h1 className="logo text-4xl md:text-6xl font-normal mb-8">
               P<span className="logo__secondary-color">o</span>dcast
             </h1>
-            <p className="text-xs uppercase tracking-[0.4rem] text-zinc-500">
+            <p className="text-xs uppercase tracking-[0.2rem] md:tracking-[0.4rem] text-zinc-500">
               Sonic Transmissions
             </p>
           </div>
@@ -163,7 +163,7 @@ export default function PodcastPage() {
                     {/* Info & Tracklist */}
                     <div className="space-y-6 md:pt-8">
                       <div className="flex items-center justify-between mb-6">
-                        <h3 className="text-xs uppercase tracking-[1rem] text-zinc-500">
+                        <h3 className="text-xs uppercase tracking-[0.3rem] md:tracking-[1rem] text-zinc-500">
                           Mix Info
                         </h3>
                       </div>
