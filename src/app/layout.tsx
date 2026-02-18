@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import Navigation from "@/components/Navigation";
 
 const inter = Inter({
   weight: "400",
@@ -26,7 +27,11 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <GoogleAnalytics />
+        <Navigation />
         {children}
+        <footer className="py-12 text-center text-[10px] tracking-[0.3rem] text-zinc-600 uppercase">
+          © 2026 Frozen Air — Built for the Void
+        </footer>
       </body>
     </html>
   );

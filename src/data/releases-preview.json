@@ -1,0 +1,95 @@
+[
+  {
+    "id": "1",
+    "title": "Sub-Zero Drift",
+    "type": "Single",
+    "year": "2026",
+    "coverArt": "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&w=1000",
+    "tracks": [
+      {
+        "number": "001",
+        "title": "Sub-Zero Drift",
+        "duration": "06:42",
+        "audioUrl": "https://download.samplelib.com/mp3/sample-12s.mp3"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Permafrost EP",
+    "type": "EP",
+    "year": "2025",
+    "coverArt": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1000",
+    "tracks": [
+      {
+        "number": "001",
+        "title": "Kinetic Frost",
+        "duration": "05:18",
+        "audioUrl": ""
+      },
+      {
+        "number": "002",
+        "title": "Glacial Structures",
+        "duration": "07:23",
+        "audioUrl": ""
+      },
+      {
+        "number": "003",
+        "title": "Ambient Void",
+        "duration": "12:00",
+        "audioUrl": ""
+      },
+      {
+        "number": "004",
+        "title": "Crystalline Decay",
+        "duration": "08:45",
+        "audioUrl": ""
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Frozen Transmissions",
+    "type": "Album",
+    "year": "2024",
+    "coverArt": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1000",
+    "tracks": [
+      {
+        "number": "001",
+        "title": "Winter Protocol",
+        "duration": "04:32",
+        "audioUrl": ""
+      },
+      {
+        "number": "002",
+        "title": "Digital Tundra",
+        "duration": "06:15",
+        "audioUrl": ""
+      },
+      {
+        "number": "003",
+        "title": "Ice Cathedral",
+        "duration": "08:20",
+        "audioUrl": ""
+      },
+      {
+        "number": "004",
+        "title": "Frozen Sequences",
+        "duration": "05:47",
+        "audioUrl": ""
+      },
+      {
+        "number": "005",
+        "title": "Arctic Resolution",
+        "duration": "07:12",
+        "audioUrl": ""
+      },
+      {
+        "number": "006",
+        "title": "Polar Synthesis",
+        "duration": "09:33",
+        "audioUrl": ""
+      }
+    ]
+  }
+]

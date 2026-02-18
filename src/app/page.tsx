@@ -42,10 +42,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <footer className="py-12 text-center text-[10px] tracking-[0.3rem] text-zinc-600 uppercase">
-        © 2026 Frozen Air — Built for the Void
-      </footer>
     </>
   );
 }

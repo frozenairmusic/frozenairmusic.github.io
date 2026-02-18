@@ -16,6 +16,7 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   margin: 0;
+  padding-top: 64px;
 }
 
 .logo {
@@ -164,5 +165,22 @@ body {
   background: #2db84d;
   border-color: #2db84d;
   color: #0a0a0a;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+}
+
+/* Track Row Styling */
+.track-row.active {
+  color: var(--red-accent);
+  border-color: var(--red-accent) !important;
+}
+
+.track-row.active .play-label {
+  color: var(--green-accent);
 }
 
