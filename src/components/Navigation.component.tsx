@@ -24,7 +24,6 @@ export default function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b transition-colors duration-300" style={{ background: 'var(--nav-bg)', borderColor: 'var(--border-primary)' }}>
       <div className="max-w-7xl mx-auto px-6 py-2.5 md:py-5">
-        {/* Desktop Navigation */}
         <div className="hidden md:flex justify-center items-center gap-8 text-sm uppercase tracking-[0.2rem] relative">
           <ul className="flex gap-8">
             <li>
@@ -77,7 +76,6 @@ export default function Navigation() {
             </li>
           </ul>
           
-          {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
             className="absolute right-0 w-9 h-9 flex items-center justify-center transition-colors duration-300 border rounded-md"
@@ -99,11 +97,9 @@ export default function Navigation() {
           </button>
         </div>
 
-        {/* Mobile Hamburger */}
         <div className="md:hidden flex justify-between items-center">
           <div className="text-xs uppercase tracking-[0.2rem]" style={{ color: 'var(--text-primary)' }}>Menu</div>
           <div className="flex items-center gap-2">
-            {/* Mobile Theme Toggle */}
             <button
               onClick={toggleTheme}
               className="w-9 h-9 flex items-center justify-center transition-colors duration-300 border rounded-md"
@@ -136,7 +132,6 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div className="md:hidden fixed left-0 right-0 top-[60px] h-[calc(100vh-60px)] z-40 overflow-y-auto transition-colors duration-300" style={{ background: 'var(--bg-primary)' }}>
           <div className="w-full pt-6 pb-8">

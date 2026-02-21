@@ -129,12 +129,40 @@ body {
   }
 }
 
+@keyframes fade-in-scroll {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+    filter: blur(12px);
+  }
+
+  30% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
 .scroll-animate {
   view-timeline-name: --section;
   view-timeline-axis: block;
   animation: apple-fade linear both;
   animation-timeline: --section;
   animation-range: entry 0% exit 100%;
+}
+
+.scroll-fade-in {
+  view-timeline-name: --section-fade;
+  view-timeline-axis: block;
+  animation: fade-in-scroll linear both;
+  animation-timeline: --section-fade;
+  animation-range: entry 0% entry 100%;
 }
 
 /* Background Noise Texture */

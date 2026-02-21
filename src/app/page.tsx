@@ -1,12 +1,10 @@
 'use client';
 
 import CookieConsent from "@/components/CookieConsent.component";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
-  const [isSecondSectionVisible, setIsSecondSectionVisible] = useState(false);
-  const secondSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,40 +15,28 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsSecondSectionVisible(true);
-        }
-      },
-      {
-        threshold: 0.05,
-        rootMargin: '100px 0px 0px 0px',
-      }
-    );
-
-    if (secondSectionRef.current) {
-      observer.observe(secondSectionRef.current);
-    }
-
-    return () => {
-      if (secondSectionRef.current) {
-        observer.unobserve(secondSectionRef.current);
-      }
-    };
-  }, []);
-
   const handleConsent = (accepted: boolean) => {
     if (typeof window !== 'undefined' && window.handleConsentUpdate) {
       window.handleConsentUpdate(accepted);
     }
   };
 
-  // Calculate subtle movement for colored letters
   const getLetterTransform = (offset: number) => {
     const movement = Math.sin((scrollY + offset) * 0.01) * 3;
     return `translateY(${movement}px)`;
+  };
+
+  const getSentenceBlur = (index: number) => {
+    const sectionStart = (typeof window !== 'undefined' ? window.innerHeight : 800) * 2.5;
+    const triggerPoint = sectionStart + (index * 450);
+    const scrollProgress = Math.max(0, Math.min(1, (scrollY - triggerPoint) / 400));
+    const blur = 10 - (scrollProgress * 10);
+    const opacity = 0.1 + (scrollProgress * 0.9);
+    return {
+      filter: `blur(${blur}px)`,
+      opacity: opacity,
+      transition: 'filter 0.4s ease-out, opacity 0.4s ease-out'
+    };
   };
 
   return (
@@ -75,21 +61,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="scroll-container" ref={secondSectionRef}>
+        <section className="scroll-container">
           <div className="sticky-wrapper">
-            <div 
-              className={`max-w-2xl px-8 text-center transition-all duration-1000 ease-out ${
-                isSecondSectionVisible 
-                  ? 'opacity-100 scale-100 blur-0' 
-                  : 'opacity-0 scale-90 blur-md'
-              }`}
-            >
-              <p className="text-xl md:text-2xl leading-relaxed text-zinc-300">
-                A synthesis of absolute zero. Frozen Air explores the tension
-                between organic decay and crystalline digital structures. Every
-                sound is a captured moment of stillness, processed through the
-                lens of modern electronic technology.
-              </p>
+            <div className="max-w-2xl px-8 text-center space-y-6">
+              <div className="text-xl md:text-2xl leading-relaxed text-zinc-300" style={getSentenceBlur(0)}>
+                A synthesis of absolute zero.
+              </div>
+              <div className="text-xl md:text-2xl leading-relaxed text-zinc-300" style={getSentenceBlur(1)}>
+                Frozen Air explores the tension between organic decay and crystalline digital structures.
+              </div>
+              <div className="text-xl md:text-2xl leading-relaxed text-zinc-300" style={getSentenceBlur(2)}>
+                Every sound is a captured moment of stillness, processed through the lens of modern electronic technology.
+              </div>
             </div>
           </div>
         </section>
