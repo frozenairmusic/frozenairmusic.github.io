@@ -23,7 +23,7 @@ export default function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b transition-colors duration-300" style={{ background: 'var(--nav-bg)', borderColor: 'var(--border-primary)' }}>
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-6 py-2.5 md:py-5">
         {/* Desktop Navigation */}
         <div className="hidden md:flex justify-center items-center gap-8 text-sm uppercase tracking-[0.2rem] relative">
           <ul className="flex gap-8">
@@ -138,14 +138,14 @@ export default function Navigation() {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="md:hidden fixed left-0 right-0 top-[57px] h-[calc(100vh-57px)] z-40 overflow-y-auto transition-colors duration-300" style={{ background: 'var(--bg-primary)' }}>
-          <div className="w-full pt-8 pb-16">
-            <ul className="flex flex-col items-center gap-8 text-2xl uppercase tracking-[0.4rem] px-6">
+        <div className="md:hidden fixed left-0 right-0 top-[60px] h-[calc(100vh-60px)] z-40 overflow-y-auto transition-colors duration-300" style={{ background: 'var(--bg-primary)' }}>
+          <div className="w-full pt-6 pb-8">
+            <ul className="flex flex-col items-center gap-4 text-xl uppercase tracking-[0.3rem] px-6">
               <li>
               <Link 
                 href="/" 
                 onClick={handleLinkClick}
-                className="transition-all duration-300 block py-4"
+                className="transition-all duration-300 block py-2"
                 style={{
                   color: isActive('/') ? 'var(--text-primary)' : 'var(--text-secondary)',
                   textShadow: isActive('/') ? '0 0 8px currentColor, 0 0 16px currentColor' : 'none'
@@ -158,7 +158,7 @@ export default function Navigation() {
               <Link 
                 href="/discography" 
                 onClick={handleLinkClick}
-                className="transition-all duration-300 block py-4"
+                className="transition-all duration-300 block py-2"
                 style={{
                   color: isActive('/discography') ? 'var(--text-primary)' : 'var(--text-secondary)',
                   textShadow: isActive('/discography') ? '0 0 8px currentColor, 0 0 16px currentColor' : 'none'
@@ -171,7 +171,7 @@ export default function Navigation() {
               <Link 
                 href="/podcast" 
                 onClick={handleLinkClick}
-                className="transition-all duration-300 block py-4"
+                className="transition-all duration-300 block py-2"
                 style={{
                   color: isActive('/podcast') ? 'var(--text-primary)' : 'var(--text-secondary)',
                   textShadow: isActive('/podcast') ? '0 0 8px currentColor, 0 0 16px currentColor' : 'none'
@@ -184,7 +184,7 @@ export default function Navigation() {
               <Link 
                 href="/contact" 
                 onClick={handleLinkClick}
-                className="transition-all duration-300 block py-4"
+                className="transition-all duration-300 block py-2"
                 style={{
                   color: isActive('/contact') ? 'var(--text-primary)' : 'var(--text-secondary)',
                   textShadow: isActive('/contact') ? '0 0 8px currentColor, 0 0 16px currentColor' : 'none'

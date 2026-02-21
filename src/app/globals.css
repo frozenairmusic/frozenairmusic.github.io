@@ -8,7 +8,7 @@
   --scroll-multiplier: 2;
 }
 
-/* Dark mode (default) */
+/* Dark mode */
 .dark {
   --bg-primary: #0a0a0a;
   --bg-secondary: #1a1a1a;
@@ -45,8 +45,14 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   margin: 0;
-  padding-top: 57px;
+  padding-top: 56px;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-top: 64px;
+  }
 }
 
 .logo {
@@ -82,12 +88,19 @@ body {
 
 .sticky-wrapper {
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: 56px;
+  height: calc(100vh - 56px);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .sticky-wrapper {
+    top: 64px;
+    height: calc(100vh - 64px);
+  }
 }
 
 @keyframes apple-fade {
