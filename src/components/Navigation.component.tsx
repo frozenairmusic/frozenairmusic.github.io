@@ -125,12 +125,12 @@ export default function Navigation() {
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="w-10 h-10 flex flex-col justify-center items-center gap-1.5"
+              className="w-10 h-10 flex flex-col justify-center items-center gap-1.5 relative overflow-visible"
               aria-label="Toggle menu"
             >
-              <span className="w-6 h-0.5 transition-all duration-300" style={{ backgroundColor: 'var(--text-primary)', transform: isMenuOpen ? 'rotate(45deg) translateY(8px)' : 'none' }}></span>
-              <span className="w-6 h-0.5 transition-all duration-300" style={{ backgroundColor: 'var(--text-primary)', opacity: isMenuOpen ? 0 : 1 }}></span>
-              <span className="w-6 h-0.5 transition-all duration-300" style={{ backgroundColor: 'var(--text-primary)', transform: isMenuOpen ? 'rotate(-45deg) translateY(-8px)' : 'none' }}></span>
+              <span className="w-6 h-0.5 transition-all duration-300 absolute" style={{ backgroundColor: 'var(--text-primary)', transform: isMenuOpen ? 'rotate(45deg)' : 'translateY(-8px)' }}></span>
+              <span className="w-6 h-0.5 transition-all duration-300 absolute" style={{ backgroundColor: 'var(--text-primary)', opacity: isMenuOpen ? 0 : 1 }}></span>
+              <span className="w-6 h-0.5 transition-all duration-300 absolute" style={{ backgroundColor: 'var(--text-primary)', transform: isMenuOpen ? 'rotate(-45deg)' : 'translateY(8px)' }}></span>
             </button>
           </div>
         </div>
