@@ -1,10 +1,12 @@
 'use client';
 
 import CookieConsent from "@/components/CookieConsent.component";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
+  const [isSecondSectionVisible, setIsSecondSectionVisible] = useState(false);
+  const secondSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +15,30 @@ export default function Home() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsSecondSectionVisible(true);
+        }
+      },
+      {
+        threshold: 0.05,
+        rootMargin: '100px 0px 0px 0px',
+      }
+    );
+
+    if (secondSectionRef.current) {
+      observer.observe(secondSectionRef.current);
+    }
+
+    return () => {
+      if (secondSectionRef.current) {
+        observer.unobserve(secondSectionRef.current);
+      }
+    };
   }, []);
 
   const handleConsent = (accepted: boolean) => {
@@ -49,9 +75,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="scroll-container">
+        <section className="scroll-container" ref={secondSectionRef}>
           <div className="sticky-wrapper">
-            <div className="scroll-animate max-w-2xl px-8 text-center">
+            <div 
+              className={`max-w-2xl px-8 text-center transition-all duration-1000 ease-out ${
+                isSecondSectionVisible 
+                  ? 'opacity-100 scale-100 blur-0' 
+                  : 'opacity-0 scale-90 blur-md'
+              }`}
+            >
               <p className="text-xl md:text-2xl leading-relaxed text-zinc-300">
                 A synthesis of absolute zero. Frozen Air explores the tension
                 between organic decay and crystalline digital structures. Every
