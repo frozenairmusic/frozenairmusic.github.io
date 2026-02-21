@@ -1,12 +1,30 @@
 'use client';
 
 import CookieConsent from "@/components/CookieConsent.component";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleConsent = (accepted: boolean) => {
     if (typeof window !== 'undefined' && window.handleConsentUpdate) {
       window.handleConsentUpdate(accepted);
     }
+  };
+
+  // Calculate subtle movement for colored letters
+  const getLetterTransform = (offset: number) => {
+    const movement = Math.sin((scrollY + offset) * 0.01) * 3;
+    return `translateY(${movement}px)`;
   };
 
   return (
@@ -20,9 +38,9 @@ export default function Home() {
           <div className="sticky-wrapper">
             <div className="scroll-animate text-center px-4">
               <h1 className="logo text-4xl md:text-6xl font-normal mb-8">
-                F<span className="logo__secondary-color">r</span>ozen{" "}
-                <span className="logo__primary-color">Ai</span>
-                <span className="logo__secondary-color">r</span>
+                F<span className="logo__secondary-color inline-block transition-transform duration-100" style={{ transform: getLetterTransform(0) }}>r</span>ozen{" "}
+                <span className="logo__primary-color inline-block transition-transform duration-100" style={{ transform: getLetterTransform(50) }}>Ai</span>
+                <span className="logo__secondary-color inline-block transition-transform duration-100" style={{ transform: getLetterTransform(100) }}>r</span>
               </h1>
               <p className="text-xs uppercase tracking-[0.2rem] md:tracking-[0.5rem] text-zinc-500">
                 Electronic Audio Project
