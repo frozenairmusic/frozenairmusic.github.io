@@ -41,6 +41,21 @@ export default function Home() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'MusicGroup',
+            name: 'Frozen Air',
+            description: 'Electronic music project exploring the tension between organic decay and crystalline digital structures',
+            genre: ['Electronic', 'Ambient', 'Experimental'],
+            url: 'https://frozenairmusic.com',
+            sameAs: [],
+          }),
+        }}
+      />
+      
       <div className="noise"></div>
 
       <CookieConsent onConsent={handleConsent} />

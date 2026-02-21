@@ -13,6 +13,44 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Frozen Air | Electronic Music",
   description: "A synthesis of absolute zero. Frozen Air explores the tension between organic decay and crystalline digital structures.",
+  keywords: ["electronic music", "ambient music", "experimental music", "frozen air", "electronic audio project"],
+  authors: [{ name: "Frozen Air" }],
+  creator: "Frozen Air",
+  metadataBase: new URL('https://frozenairmusic.com'),
+  openGraph: {
+    title: "Frozen Air | Electronic Music",
+    description: "A synthesis of absolute zero. Frozen Air explores the tension between organic decay and crystalline digital structures.",
+    url: 'https://frozenairmusic.com',
+    siteName: 'Frozen Air',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Frozen Air - Electronic Music',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Frozen Air | Electronic Music",
+    description: "A synthesis of absolute zero. Electronic audio project exploring organic decay and crystalline digital structures.",
+    creator: '@frozenair',
+    images: ['/og-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
